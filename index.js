@@ -44,6 +44,13 @@ nextButton.addEventListener("click", () => {
     return;
   }
 });
+prevButton.addEventListener("click", () => {
+  while (currentPageNumber > 1) {
+    currentPageNumber--;
+    buttonEvent();
+    return;
+  }
+});
 
 function buttonEvent() {
   cardContainer.innerHTML = "";
