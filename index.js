@@ -15,4 +15,4 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-console.log(createCharacterCard());
+console.log(createCharacterCard(cardContainer));
