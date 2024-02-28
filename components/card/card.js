@@ -1,10 +1,10 @@
 export function createCharacterCard(cardContainer, character) {
-  let imgSrc;
-  let characterName = characterArray.name;
-  let characterStatus;
-  let characterType;
-  let characterOccurrences;
-  console.log("card container", cardContainer);
+  let imgSrc = character.image;
+  let characterName = character.name;
+  let characterStatus = character.status;
+  let characterType = character.type;
+  let characterOccurrences = character.episode.length;
+
   cardContainer.innerHTML += `<li class="card">
     <div class="card__image-container">
       <img
