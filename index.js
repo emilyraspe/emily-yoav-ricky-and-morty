@@ -15,9 +15,11 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-async function fetchCharacters() {
+async function fetchCharacters(pageNumber) {
   try {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/character/?page=${pageNumber}`
+    );
     if (!response.ok) {
       console.error("no data was fetched");
       return;
@@ -33,4 +35,17 @@ async function fetchCharacters() {
   }
 }
 
-fetchCharacters();
+let currentPageNumber = 1;
+
+nextButton.addEventListener("click", () => {
+  while (currentPageNumber <= 42) {
+    currentPageNumber++;
+    pagination.textContent = `${currentPageNumber} / 42`;
+    console.log("insisde the function: ", currentPageNumber);
+    fetchCharacters(currentPageNumber);
+
+    return;
+  }
+});
+
+fetchCharacters(0);
