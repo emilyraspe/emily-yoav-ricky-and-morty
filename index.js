@@ -24,7 +24,13 @@ async function fetchCharacters() {
       return;
     }
     const data = await response.json();
-    console.log(data.results[0]);
+    console.log(data.results);
+
+    let cardList = "";
+    data.results.forEach((character) => {
+      cardList += createCharacterCard(cardContainer, character);
+    });
+    console.log(cardList);
   } catch (error) {
     console.error(error);
   }
