@@ -1,3 +1,5 @@
+import { createCharacterCard } from "./components/card/card.js";
+
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
@@ -13,4 +15,4 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-console.log("hi emily");
+console.log(createCharacterCard());
