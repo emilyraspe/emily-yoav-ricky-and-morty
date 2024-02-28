@@ -1,6 +1,6 @@
-export function createCharacterCard(cardContainer) {
+export function createCharacterCard(cardContainer, character) {
   let imgSrc;
-  let characterName;
+  let characterName = characterArray.name;
   let characterStatus;
   let characterType;
   let characterOccurrences;
