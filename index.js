@@ -25,9 +25,8 @@ async function fetchCharacters() {
     const data = await response.json();
     const characterArray = data.results;
 
-    let cardList = "";
     characterArray.forEach((character) => {
-      cardList += createCharacterCard(cardContainer, character);
+      createCharacterCard(cardContainer, character);
     });
   } catch (error) {
     console.error(error);
