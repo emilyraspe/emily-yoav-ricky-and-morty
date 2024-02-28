@@ -40,12 +40,16 @@ let currentPageNumber = 1;
 nextButton.addEventListener("click", () => {
   while (currentPageNumber <= 42) {
     currentPageNumber++;
-    pagination.textContent = `${currentPageNumber} / 42`;
-    console.log("insisde the function: ", currentPageNumber);
-    fetchCharacters(currentPageNumber);
-
+    buttonEvent();
     return;
   }
 });
+
+function buttonEvent() {
+  cardContainer.innerHTML = "";
+  pagination.textContent = `${currentPageNumber} / 42`;
+  console.log("insisde the function: ", currentPageNumber);
+  fetchCharacters(currentPageNumber);
+}
 
 fetchCharacters(0);
