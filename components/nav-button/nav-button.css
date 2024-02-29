@@ -1,7 +1,9 @@
 .button {
   border: none;
+  background-color: var(--color-green);
+  box-shadow: var(--color-green) 0px 0px 1px 1px;
 }
 
 .button:hover {
-  background-color: var(--color-secondary);
+  background-color: var(--color-green-dark);
 }

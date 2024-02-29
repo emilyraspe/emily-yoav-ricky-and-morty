@@ -3,7 +3,9 @@
 }
 .card {
   width: 300px;
-  background-color: var(--color-secondary);
+  background-color: #00b3c3;
+  color: var(--color-dark-blue);
+  box-shadow: #8ec760 0px 0px 7px 3px;
 }
 
 .card__info {
@@ -22,4 +24,5 @@
 
 li {
   list-style: none;
+  margin-bottom: 20px;
 }

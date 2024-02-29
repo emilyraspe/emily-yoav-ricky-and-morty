@@ -1,10 +1,11 @@
 .search-bar-container {
   width: 300px;
+  margin-bottom: 10px;
 }
 
 .search-bar {
   padding: 10px 20px;
-  background-color: var(--color-secondary);
+  background-color: var(--color-green);
   display: grid;
   grid-template-columns: 1fr 24px;
 }
@@ -27,4 +28,8 @@
 .search-bar__icon {
   width: 20px;
   /* filter: invert(); */
+}
+
+::placeholder {
+  color: var(--color-green-dark);
 }
