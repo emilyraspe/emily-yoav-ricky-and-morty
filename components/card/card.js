@@ -14,15 +14,15 @@ export function createCharacterCard(cardContainer, character) {
       />
       <div class="card__image-gradient"></div>
     </div>
-    <div class="card__content">
+    <div class="card__content" aria-label="character card for ${characterName}">
       <h2 class="card__title">${characterName}</h2>
       <dl class="card__info">
-        <dt class="card__info-title">Status</dt>
-        <dd class="card__info-description">${characterStatus}</dd>
-        <dt class="card__info-title">Type</dt>
-        <dd class="card__info-description">${characterType}</dd>
-        <dt class="card__info-title">Occurrences</dt>
-        <dd class="card__info-description">${characterOccurrences}</dd>
+        <dt class="card__info-title" aria-label="status of ${characterName}">Status</dt>
+        <dd class="card__info-description" aria-label="status is ${characterStatus}">${characterStatus}</dd>
+        <dt class="card__info-title" aria-label="character type">Type</dt>
+        <dd class="card__info-description" aria-label="type of character is ${characterType}">${characterType}</dd>
+        <dt class="card__info-title" aria-label="number of occurrences in the show">Occurrences</dt>
+        <dd class="card__info-description" aria-label="number of occurrences on the show is ${characterOccurrences}">${characterOccurrences}</dd>
       </dl>
     </div>
   </li>`;
