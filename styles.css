@@ -22,7 +22,7 @@ body {
   font-family: var(--font-family);
   color: var(--color-primary);
   padding: 20px;
-  background-image: url(./assets/pexels-felix-mittermeier-957061.jpg);
+  background-image: url(./assets/background-2.png);
   background-color: var(--color-dark-blue);
 }
 
