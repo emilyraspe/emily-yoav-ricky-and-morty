@@ -10,16 +10,28 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+
     <main>
       <img src="./assets/rickAndMoreLogo.png" class="logo" />
-      <div class="search-bar-container" data-js="search-bar-container">
+      <div
+        class="search-bar-container"
+        data-js="search-bar-container"
+        aria-labelledby="search-bar-label"
+      >
+
         <form action="" class="search-bar" data-js="search-bar">
+          <label
+            id="search-bar-label"
+            class="visually-hidden"
+            for="query"
+            aria-label="search for characters"
+          ></label>
           <input
             name="query"
             class="search-bar__input"
             type="text"
             placeholder="search characters"
-            aria-label="character name"
+            aria-label="search for characters by typing character name"
             data-js="search-bar__input"
           />
           <button class="search-bar__button" aria-label="search for character">
@@ -35,14 +47,34 @@
         class="card-container"
         data-js="card-container"
         id="card-container"
+        aria-label="character cards"
       ></ul>
     </main>
-    <nav class="navigation" data-js="navigation">
-      <button class="button button--prev" data-js="button-prev">
+    <nav
+      class="navigation"
+      data-js="navigation"
+      aria-labelledby="navigate pages"
+    >
+      <button
+        class="button button--prev"
+        data-js="button-prev"
+        aria-label="previous page"
+      >
         previous
       </button>
-      <span class="navigation__pagination" data-js="pagination">1 / 42</span>
-      <button class="button button--next" data-js="button-next">next</button>
+      <span
+        class="navigation__pagination"
+        data-js="pagination"
+        aria-hidden="true"
+        >1 / 42</span
+      >
+      <button
+        class="button button--next"
+        data-js="button-next"
+        aria-label="next page"
+      >
+        next
+      </button>
     </nav>
   </body>
   <script type="module" src="./index.js"></script>
