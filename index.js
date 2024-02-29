@@ -10,15 +10,20 @@ const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
-// States
-const maxPage = 1;
-const page = 1;
-const searchQuery = "";
+const searchBar__input = document.querySelector(
+  '[data-js="search-bar__input"]'
+);
 
-async function fetchCharacters(pageNumber) {
+// States
+let maxPage = 1;
+let page = 1;
+const searchQuery = document.querySelector('[data-js="search-bar__input"]');
+let urlExtensionString = "page=";
+
+async function fetchCharacters(urlExtension) {
   try {
     const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?page=${pageNumber}`
+      `https://rickandmortyapi.com/api/character/?${urlExtension}`
     );
     if (!response.ok) {
       console.error("no data was fetched");
@@ -26,6 +31,8 @@ async function fetchCharacters(pageNumber) {
     }
     const data = await response.json();
     const characterArray = data.results;
+    maxPage = data.info.pages;
+    console.log(maxPage);
 
     characterArray.forEach((character) => {
       createCharacterCard(cardContainer, character);
@@ -35,28 +42,49 @@ async function fetchCharacters(pageNumber) {
   }
 }
 
-let currentPageNumber = 1;
-
 nextButton.addEventListener("click", () => {
-  while (currentPageNumber <= 42) {
-    currentPageNumber++;
+  if (page < maxPage) {
+    page++;
     buttonEvent();
-    return;
   }
 });
 prevButton.addEventListener("click", () => {
-  while (currentPageNumber > 1) {
-    currentPageNumber--;
+  if (page > 1) {
+    page--;
     buttonEvent();
-    return;
   }
 });
 
 function buttonEvent() {
   cardContainer.innerHTML = "";
-  pagination.textContent = `${currentPageNumber} / 42`;
-  console.log("insisde the function: ", currentPageNumber);
-  fetchCharacters(currentPageNumber);
+  pagination.textContent = `${page} / ${maxPage}`;
+
+  let urlExtension = "";
+
+  if (searchBar__input.value.trim() !== "") {
+    urlExtension = `name=${searchQuery.value}&page=${page}`;
+  } else {
+    urlExtension = `page=${page}`;
+  }
+
+  fetchCharacters(urlExtension);
 }
 
-fetchCharacters(0);
+searchBar.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  cardContainer.innerHTML = "";
+  maxPage = 1;
+  page = 1;
+  let urlExtension;
+  urlExtension = `name=${searchQuery.value}`;
+
+  // console.log(searchQuery.value);
+  await fetchCharacters(urlExtension);
+
+  pagination.textContent = `${page} / ${maxPage}`;
+  console.log(maxPage);
+
+  // createCharacterCard(cardContainer, character);
+});
+
+fetchCharacters();
