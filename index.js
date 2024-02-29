@@ -55,7 +55,7 @@ prevButton.addEventListener("click", () => {
   }
 });
 
-function buttonEvent(even) {
+function buttonEvent() {
   cardContainer.innerHTML = "";
   pagination.textContent = `${page} / ${maxPage}`;
 
