@@ -2,8 +2,10 @@
   border: none;
   background-color: var(--color-green);
   box-shadow: var(--color-green) 0px 0px 1px 1px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .button:hover {
-  background-color: var(--color-green-dark);
+  background-color: var(--color-green-light);
+  /* transition: 0.3s, ease-in-out; */
 }

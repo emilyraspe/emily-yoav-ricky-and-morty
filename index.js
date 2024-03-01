@@ -32,7 +32,6 @@ async function fetchCharacters(urlExtension) {
     const data = await response.json();
     const characterArray = data.results;
     maxPage = data.info.pages;
-    console.log(maxPage);
 
     characterArray.forEach((character) => {
       createCharacterCard(cardContainer, character);
