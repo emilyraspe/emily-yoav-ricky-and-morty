@@ -18,7 +18,7 @@ const searchBar__input = document.querySelector(
 let maxPage = 1;
 let page = 1;
 const searchQuery = document.querySelector('[data-js="search-bar__input"]');
-let urlExtensionString = "page=";
+let searchQueryValue = "";
 
 async function fetchCharacters(urlExtension) {
   try {
@@ -58,12 +58,12 @@ function buttonEvent() {
   cardContainer.innerHTML = "";
   pagination.textContent = `${page} / ${maxPage}`;
 
-  let urlExtension = "";
+  let urlExtension = `page=${page}`;
 
   if (searchBar__input.value.trim() !== "") {
     urlExtension = `name=${searchQuery.value}&page=${page}`;
   } else {
-    urlExtension = `page=${page}`;
+    urlExtension += `&name=${searchQueryValue}`;
   }
 
   fetchCharacters(urlExtension);
@@ -74,14 +74,14 @@ searchBar.addEventListener("submit", async (event) => {
   cardContainer.innerHTML = "";
   maxPage = 1;
   page = 1;
-  let urlExtension;
-  urlExtension = `name=${searchQuery.value}`;
+  searchQueryValue = searchQuery.value;
+  let urlExtension = `name=${searchQueryValue}`;
 
   await fetchCharacters(urlExtension);
 
   pagination.textContent = `${page} / ${maxPage}`;
 
-  searchQuery.value = "";
+  event.target.reset();
 });
 
 fetchCharacters();
