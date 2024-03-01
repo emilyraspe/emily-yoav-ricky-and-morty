@@ -1,4 +1,5 @@
 import { createCharacterCard } from "./components/card/card.js";
+import { buttonEvent } from "./components/nav-button/nav-button.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
@@ -9,15 +10,13 @@ const navigation = document.querySelector('[data-js="navigation"]');
 const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
+const searchQuery = document.querySelector('[data-js="search-bar__input"]');
+// const searchBar__input = document.querySelector(
+//   '[data-js="search-bar__input"]'
+// );
 
-const searchBar__input = document.querySelector(
-  '[data-js="search-bar__input"]'
-);
-
-// States
 let maxPage = 1;
 let page = 1;
-const searchQuery = document.querySelector('[data-js="search-bar__input"]');
 let searchQueryValue = "";
 
 async function fetchCharacters(urlExtension) {
@@ -44,30 +43,31 @@ async function fetchCharacters(urlExtension) {
 nextButton.addEventListener("click", () => {
   if (page < maxPage) {
     page++;
-    buttonEvent();
+    buttonEvent(
+      cardContainer,
+      page,
+      maxPage,
+      pagination,
+      searchQuery,
+      searchQueryValue,
+      fetchCharacters
+    );
   }
 });
 prevButton.addEventListener("click", () => {
   if (page > 1) {
     page--;
-    buttonEvent();
+    buttonEvent(
+      cardContainer,
+      page,
+      maxPage,
+      pagination,
+      searchQuery,
+      searchQueryValue,
+      fetchCharacters
+    );
   }
 });
-
-function buttonEvent() {
-  cardContainer.innerHTML = "";
-  pagination.textContent = `${page} / ${maxPage}`;
-
-  let urlExtension = `page=${page}`;
-
-  if (searchBar__input.value.trim() !== "") {
-    urlExtension = `name=${searchQuery.value}&page=${page}`;
-  } else {
-    urlExtension += `&name=${searchQueryValue}`;
-  }
-
-  fetchCharacters(urlExtension);
-}
 
 searchBar.addEventListener("submit", async (event) => {
   event.preventDefault();
