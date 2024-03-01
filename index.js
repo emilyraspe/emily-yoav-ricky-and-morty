@@ -78,13 +78,11 @@ searchBar.addEventListener("submit", async (event) => {
   let urlExtension;
   urlExtension = `name=${searchQuery.value}`;
 
-  // console.log(searchQuery.value);
   await fetchCharacters(urlExtension);
 
   pagination.textContent = `${page} / ${maxPage}`;
-  console.log(maxPage);
 
-  // createCharacterCard(cardContainer, character);
+  searchQuery.value = "";
 });
 
 fetchCharacters();
