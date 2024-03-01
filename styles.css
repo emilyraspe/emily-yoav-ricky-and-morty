@@ -46,3 +46,15 @@ main {
 .visually-hidden {
   display: none;
 }
+
+@media (min-width: 670px) {
+  .logo {
+    width: 450px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .logo {
+    width: 600px;
+  }
+}
