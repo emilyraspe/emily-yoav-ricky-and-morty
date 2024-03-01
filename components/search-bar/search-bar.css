@@ -8,12 +8,14 @@
   background-color: var(--color-green);
   display: grid;
   grid-template-columns: 1fr 24px;
+  box-shadow: #8ec760 0px 0px 7px 3px;
 }
 
 .search-bar__input {
   background-color: transparent;
   border: none;
   color: var(--color-primary);
+  font-family: var(--font-family);
 }
 
 .search-bar__button {

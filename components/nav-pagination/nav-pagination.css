@@ -8,5 +8,5 @@
 .navigation__pagination {
   display: grid;
   place-items: center;
-  color: var(--color-secondary);
+  color: var(--color-green-light);
 }
