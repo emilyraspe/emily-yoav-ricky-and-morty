@@ -15,8 +15,8 @@
   --color-dark-blue: #1e1f43;
   --color-green: #8ec760;
   --color-green-dark: #537c32;
-  --color-aqua: #00b3c3;
-  --font-family: system-ui;
+  --color-aqua: #4dcad5;
+  --font-family: "Playpen Sans", cursive;
 }
 
 body {
